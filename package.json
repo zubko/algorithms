@@ -1,0 +1,21 @@
+{
+  "name": "leetcode-challenges",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alexander Zubko <alexander.zubko@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --harmony index.js",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch"
+  },
+  "dependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ramda": "^0.26.1"
+  }
+}
