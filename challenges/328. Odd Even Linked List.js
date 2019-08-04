@@ -15,7 +15,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var oddEvenList = function(head) {
+const oddEvenList = function(head) {
   let oddsHead = head;
   let evensHead = head && head.next;
   let oddsTail = null;
@@ -36,3 +36,5 @@ var oddEvenList = function(head) {
   oddsTail && (oddsTail.next = evensHead);
   return oddsHead;
 };
+
+module.exports = { oddEvenList };

@@ -5,7 +5,7 @@
  * @param {number} rowIndex
  * @return {number[]}
  */
-var getRow = function(rowIndex) {
+const getRow = function(rowIndex) {
   // doing only the right part of triangle
   let row = [1];
   for (let i = 2; i <= rowIndex; i++) {
@@ -25,3 +25,5 @@ var getRow = function(rowIndex) {
     .reverse()
     .concat(row);
 };
+
+module.exports = { getRow };

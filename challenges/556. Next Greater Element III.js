@@ -1,6 +1,9 @@
 /**
  * 556. Next Greater Element III
  * https://leetcode.com/problems/next-greater-element-iii/description/
+ *
+ * Given a positive 32-bit integer n, you need to find the smallest 32-bit integer which has exactly the same digits existing in the integer n and is greater in value than n. If no such positive 32-bit integer exists, you need to return -1.
+ *
  */
 
 const MAX_INT_32 = 2147483647;
@@ -14,15 +17,15 @@ const nextGreaterElement = function(n) {
   if (n < 12) {
     return -1;
   }
-  const digits = _numberToDigits(n);
-  if (!_permutateNext(digits)) {
+  const digits = numberToDigits(n);
+  if (!permutateNext(digits)) {
     return -1;
   }
-  const result = _digitsToNumber(digits);
+  const result = digitsToNumber(digits);
   return result <= MAX_INT_32 ? result : -1;
 };
 
-const _permutateNext = function(digits) {
+const permutateNext = function(digits) {
   // check on which index the descending sort breaks
   let lastSortedI = -1;
   for (let i = digits.length - 1; i >= 1; i--) {
@@ -31,14 +34,14 @@ const _permutateNext = function(digits) {
       break;
     }
   }
-  if (lastSortedI == -1) {
+  if (lastSortedI === -1) {
     return false;
   }
   // push the next bigger number instead (sub-sequence is sorted)
   // sort the new subsequence ascending
   for (let i = digits.length - 1; i >= lastSortedI; i--) {
     if (digits[i] > digits[lastSortedI - 1]) {
-      _arraySwapElements(digits, i, lastSortedI - 1);
+      arraySwapElements(digits, i, lastSortedI - 1);
       const newSorted = digits.splice(lastSortedI).sort((a, b) => a > b);
       digits.push(...newSorted);
       break;
@@ -47,15 +50,14 @@ const _permutateNext = function(digits) {
   return true;
 };
 
-const _arraySwapElements = function(array, i, j) {
+const arraySwapElements = function(array, i, j) {
   const temp = array[i];
   array[i] = array[j];
   array[j] = temp;
 };
 
-const _numberToDigits = function(n) {
+const numberToDigits = function(n) {
   const digits = [];
-  let i = 0;
   while (n > 0) {
     digits.push(n % 10);
     n = Math.floor(n / 10);
@@ -63,7 +65,7 @@ const _numberToDigits = function(n) {
   return digits.reverse();
 };
 
-const _digitsToNumber = function(digits) {
+const digitsToNumber = function(digits) {
   let n = 0;
   let m = 1;
   for (let i = digits.length - 1; i >= 0; i--) {
@@ -72,3 +74,5 @@ const _digitsToNumber = function(digits) {
   }
   return n;
 };
+
+module.exports = { nextGreaterElement };
