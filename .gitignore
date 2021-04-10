@@ -1,2 +1,11 @@
+# OS
 .DS_Store
+
+# IDE
+.idea
+
+# JavaScript
 node_modules
+
+# Python
+__pycache__
