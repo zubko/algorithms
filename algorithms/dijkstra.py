@@ -25,7 +25,7 @@ def dijkstra(graph, start, fin):
     node = find_next_node()
     while node is not None:
         for child in graph[node]:
-            if costs[child] == None or costs[child] > costs[node] + graph[node][child]:
+            if costs[child] is None or costs[child] > costs[node] + graph[node][child]:
                 costs[child] = costs[node] + graph[node][child]
                 parents[child] = node
         processed.append(node)
