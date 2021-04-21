@@ -5,8 +5,7 @@ import random
 import timeit
 
 
-def heap_sorted(source):
-    arr = source.copy()
+def heap_sort(arr):
     n = len(arr)
 
     def heapify(i, max_i):
@@ -35,25 +34,16 @@ def heap_sorted(source):
     return arr
 
 
-def test_sort(arr):
-    print(f"Array: {arr}")
-    print(f"Sorted: {heap_sorted(arr)}")
-    print("---------")
+# export
+name = "heap sort"
+func = heap_sort
 
+# test
+if __name__ == '__main__':
+    def test_sort(arr):
+        print(f"Array: {arr}")
+        print(f"Sorted: {heap_sort(arr)}")
+        print("---------")
 
-test_sort([])
-test_sort([0, 6, 3, 1, 2, 12, 4, 10, 6, 20, 7, 2, 18, 1, -5])
-
-
-# Super casual test of the growth of time with the growth of instance
-
-
-def test_run_time(n):
-    arr = [random.randint(-1000000, +1000000) for i in range(n)]
-    print(f"Time of {n} is: {timeit.timeit(lambda: heap_sorted(arr), number=1)}")
-
-
-test_run_time(100000)
-test_run_time(200000)
-test_run_time(400000)
-test_run_time(800000)
+    test_sort([])
+    test_sort([0, 6, 3, 1, 2, 12, 4, 10, 6, 20, 7, 2, 18, 1, -5])
