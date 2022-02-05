@@ -15,6 +15,7 @@ import quicksort_inplace_with_insertion
 import heap_sort
 import default_sort
 import insertion_sort
+import merge_sort
 
 modules = [
     default_sort,
@@ -23,7 +24,8 @@ modules = [
     quicksort_inplace_nonrec,
     quicksort_inplace_with_insertion,
     heap_sort,
-    insertion_sort
+    insertion_sort,
+    merge_sort
 ]
 
 
